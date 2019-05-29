@@ -40,7 +40,9 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 |email|integer|null: false|
-|group_id|integer|null: false, foreign_key: true|
+
+### インデックス
+add_index :users, :name
 
 ### Association
 - has_many :groups, through :members
@@ -52,8 +54,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_many :users, through :members
@@ -64,8 +64,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
-|image|string|null: false|
+|body|text|
+|image|string|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
