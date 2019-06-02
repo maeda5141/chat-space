@@ -5,16 +5,4 @@
 @import "./header";
 @import "./main";
 @import "./message_form";
-
-
-
-html {
-  height: 100%;
-  body {
-    height: 100%;
-    a {
-      color: #fff;
-      text-decoration: none;
-    }
-  }
-}
+@import "./body";
