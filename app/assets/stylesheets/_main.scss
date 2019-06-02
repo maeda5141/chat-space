@@ -1,0 +1,63 @@
+$lightBlue: #38aef0;
+$padding: 40px 0;
+$mainWidth: calc(100vw - 300px);
+
+
+
+
+.main {
+  float: right;
+  width: $mainWidth;
+  height: calc(100% - 72px);
+  &_top {
+    padding: 35px $padding;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    .group_name {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .member_name {
+      font-size: 12px;
+      color: #999;
+    }
+    .edit {
+      height: 40px;
+      line-height: 40px;
+      a {
+
+        color: $lightBlue;
+      }
+      padding: 0 20px;
+      border: 1px solid $lightBlue;
+      position: absolute;
+      top: 28px;
+      right: 40px;
+    }
+  }
+
+ &_middle {
+   height: calc(100% - 100px );
+   padding: 46px $padding;
+   background: #fafafa;
+   li {
+        margin-bottom: 40px;
+   p:first-child {
+     font-size: 16px;
+     font-weight: bold;    
+     color: #333;
+     span {
+       font-weight: normal;
+       font-size: 12px;
+       color: #999;
+       padding-left: 10px;
+     }
+   }
+   p:last-child {
+     margin-top: 10px;
+   }
+  }
+ }
+}
+ 

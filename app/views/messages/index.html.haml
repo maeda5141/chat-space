@@ -1,0 +1,43 @@
+.menu
+ .menu_top
+  .icons
+   %a(class="fa fa-edit" href="")
+   %a(class="fa fa-cog" href="")
+   
+  %p
+   test-name
+ .menu_middle
+  %ul.group_lists
+   %li.group_list
+    %p test-group
+    %p hello
+
+.main
+ .main_top
+  %p.group_name
+   sample-group
+  %p.member_name
+   Member: test-name
+  .edit
+   %a(href="")
+    Edit
+ .main_middle
+  %ul.chat_lists
+   %li.chat_list
+    %p 
+     test-user
+     %span 2019/06/01
+    %p hello
+   %li.chat_list
+    %p 
+     test-user2
+     %span 2019/06/02
+    %p ya!
+.message_form
+ %form
+  %input(type="text" placeholder="type a message")
+  %input(type="submit" value="Send")
+  %label.upload-label{for: "upload-icon"}
+   %i(class="fa fa-image")
+   %input(type="file" id="upload-icon")
+  
