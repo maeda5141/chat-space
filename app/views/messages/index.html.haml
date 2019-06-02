@@ -1,8 +1,10 @@
 .menu
  .menu_top
   .icons
-   %a(class="fa fa-edit" href="")
-   %a(class="fa fa-cog" href="")
+   = link_to "" do
+    %i(class="fa fa-edit")
+   = link_to "" do
+    %i(class="fa fa-cog")
    
   %p
    test-name
@@ -19,7 +21,7 @@
   %p.member_name
    Member: test-name
   .edit
-   %a(href="")
+   =link_to "" do
     Edit
  .main_middle
   %ul.chat_lists
