@@ -1,0 +1,40 @@
+.message_form {
+  background: #ddd;
+  text-align: right;
+  width: calc(100vw - 300px - 80px);
+  padding: 20px 40px;
+  position: fixed;
+  bottom:0;
+  right: 0;
+  
+  form {
+    width: 100%;
+    position: relative;
+  
+    input[type="text"] {
+      color: #434a54;
+    width: calc(100% - 135px - 10px);
+    height: 50px;
+    font-size: 16px;
+    padding: 0 10px;
+  }
+  input[type="submit"] {
+    cursor: pointer;
+    background: #38aef0;
+    width: 100px;
+    height: 50px;
+    color: #fff;
+    font-weight: bold;
+    margin-left: 15px;
+    }
+    input[type="file"] {
+      display: none;
+    }
+    i {
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    right: 135px;
+      }
+  }
+}
