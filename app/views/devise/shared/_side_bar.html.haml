@@ -1,0 +1,17 @@
+-# - flash.each do |key, value| 
+-#  = content_tag(:header, "ログインしました")
+.menu
+ .menu_top
+  .icons
+   = link_to "" do
+    %i(class="fa fa-edit")
+   = link_to edit_user_path(current_user.id) do
+    %i(class="fa fa-cog")
+   
+  %p
+   = current_user.name
+ .menu_middle
+  %ul.group_lists
+   %li.group_list
+    %p test-group
+    %p hello
