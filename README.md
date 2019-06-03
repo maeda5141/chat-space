@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-## membersテーブル
+## group_usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -45,8 +45,8 @@ Things you may want to cover:
 add_index :users, :name
 
 ### Association
-- has_many :groups, through :members
-- has_many :members
+- has_many :groups, through :group_users
+- has_many :group_users
 - has_many :messages
 
 ## groupsテーブル
@@ -56,9 +56,9 @@ add_index :users, :name
 |name|string|null: false|
 
 ### Association
-- has_many :users, through :members
+- has_many :users, through :group_users
 - has_many :members
-- has_many :messages
+- has_many :group_users
 
 ## messagesテーブル
 
