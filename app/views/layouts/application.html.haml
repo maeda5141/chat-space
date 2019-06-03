@@ -7,5 +7,6 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %header グループを作成しました
+    - flash.each do |key, value|
+      = content_tag(:div, value, class: "flash flash__#{key}")
     = yield
