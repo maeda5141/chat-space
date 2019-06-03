@@ -1,18 +1,5 @@
-.menu
- .menu_top
-  .icons
-   = link_to "" do
-    %i(class="fa fa-edit")
-   = link_to "" do
-    %i(class="fa fa-cog")
-   
-  %p
-   test-name
- .menu_middle
-  %ul.group_lists
-   %li.group_list
-    %p test-group
-    %p hello
+
+= render partial: "devise/shared/side_bar.html.haml"
 
 .main
  .main_top
