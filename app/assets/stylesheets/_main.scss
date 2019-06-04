@@ -8,7 +8,7 @@ $mainWidth: calc(100vw - 300px);
 .main {
   float: right;
   width: $mainWidth;
-  height: calc(100% - 72px);
+  height: 100%;
   &_top {
     padding: 35px $padding;
     border-bottom: 1px solid #eee;
@@ -38,7 +38,8 @@ $mainWidth: calc(100vw - 300px);
   }
 
  &_middle {
-   height: calc(100% - 100px );
+   height: calc(100% - 146px);
+
    padding: 46px $padding;
    background: #fafafa;
    li {
