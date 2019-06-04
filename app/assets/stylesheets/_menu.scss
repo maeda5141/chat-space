@@ -7,7 +7,7 @@
   width: 300px;
   background: #2f3e51;
   color: #fff;
-  height: 100vh;
+  height: 100%;
    
 
   &_top {
@@ -24,13 +24,15 @@
   }
   &_middle {
     @include padding();
+    height: calc(100% - 120px);
+    // height: 100%;
     .group_list {
       margin-bottom: 40px;
-      p:first-child {
+      .grpup__name {
         font-size: 15px;
         margin-bottom: 5px;
       }
-      p:last-child {
+      .group__message {
         font-size: 11px;
       }
     }
