@@ -2,7 +2,7 @@
 .menu
  .menu_top
   .icons
-   = link_to "" do
+   = link_to new_group_path do
     %i(class="fa fa-edit")
    = link_to edit_user_path(current_user.id) do
     %i(class="fa fa-cog")
@@ -11,6 +11,10 @@
    = current_user.name
  .menu_middle
   %ul.group_lists
-   %li.group_list
-    %p test-group
-    %p hello
+   - current_user.groups.each do |group|
+    %li.group_list
+     = link_to group_messages_path(group) do
+      .group__name
+       = group.name
+     .group__message
+      メッセージはまだありません。
