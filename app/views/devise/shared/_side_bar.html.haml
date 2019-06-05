@@ -16,5 +16,9 @@
      = link_to group_messages_path(group) do
       .group__name
        = group.name
-     .group__message
-      メッセージはまだありません。
+      .group__message
+       = group.show_last_message(group)
+      -#  - if group.messages != []
+      -#   - group.messages.last.body? ? message.last : 画像が投稿されています
+      -#  - else
+      -#   まだメッセージはありません。

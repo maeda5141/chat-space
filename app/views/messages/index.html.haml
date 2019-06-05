@@ -4,29 +4,29 @@
 .main
  .main_top
   %p.group_name
-   sample-group
+   = @group.name
   %p.member_name
    Member: test-name
   .edit
-   =link_to edit_group_path(1)  do
+   =link_to edit_group_path(@group)  do
     Edit
  .main_middle
   %ul.chat_lists
-   %li.chat_list
-    %p 
-     test-user
-     %span 2019/06/01
-    %p hello
-   %li.chat_list
-    %p 
-     test-user2
-     %span 2019/06/02
-    %p ya!
+   - @messages.each do |message|
+    %li
+     %p
+      = message.user.name
+      %span 
+       = message.created_at
+     %p 
+      = message.body
+     %p 
+      = image_tag message.image if message.image.present?
+
 .message_form
- %form
-  %input(type="text" placeholder="type a message")
-  %input(type="submit" value="Send")
-  %label.upload-label{for: "upload-icon"}
+ = form_for [@group, @message] do |f|
+  = f.text_field :body, placeholder: "type a message"
+  = f.submit value: "Send"
+  = f.label "upload-icon", class: "upload-label" do
    %i(class="fa fa-image")
-   %input(type="file" id="upload-icon")
-  
+   = f.file_field :image, id: "message_upload-icon"

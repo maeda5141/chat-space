@@ -6,4 +6,11 @@ class Group < ApplicationRecord
   validates :name, presence: true, uniqueness: true 
   validates :user_ids, presence: true
 
+  def show_last_message(group)
+    if group.messages != []
+     group.messages.last.body? ? message.last : '画像が投稿されています。'
+    else
+     'まだメッセージはありません。'
+    end
+ end
 end
