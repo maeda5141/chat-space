@@ -40,8 +40,12 @@ $mainWidth: calc(100vw - 300px);
  &_middle {
    height: calc(100% - 146px);
 
-   padding: 46px $padding;
+   padding: 46px 40px 0px;
    background: #fafafa;
+   overflow: scroll;
+   ul {
+     margin-bottom: 100px;
+   
    li {
         margin-bottom: 40px;
    p:first-child {
@@ -59,6 +63,7 @@ $mainWidth: calc(100vw - 300px);
      margin-top: 10px;
    }
   }
+}
  }
 }
  

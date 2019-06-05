@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @save = @group.save
     if @save
-    flash[:success] = "グループを作成しました"
+    flash.now[:success] = "グループを作成しました"
     redirect_to root_path
     else
       @group.valid?
