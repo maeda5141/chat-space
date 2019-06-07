@@ -41,6 +41,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+  gem 'faker'
+  gem 'papybara'
 end
 
 group :development do
@@ -53,7 +55,7 @@ group :development do
 end
 
 group :test do
-  gem 'faker'
+#  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
