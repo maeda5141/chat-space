@@ -40,8 +40,8 @@ return html;
       processData: false,
       contentType: false
     })
-    .done(function (data) {
-      var html = buildhtml(data);
+    .done(function (message) {
+      var html = buildhtml(message);
       $('.chat_lists').append(html);
       $('#message_body').val('');
       $('#message_upload-icon').val('');
