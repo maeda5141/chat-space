@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    @group = current_user.group
+    respond_to do |format|
+      format.html {redirecd_to group_messages_path(@goup)}
+      format.json
 end
   def edit
     
