@@ -43,8 +43,8 @@ return html;
     .done(function (message) {
       var html = buildhtml(message);
       $('.chat_lists').append(html);
-      $('#message_body').val('');
-      $('#message_upload-icon').val('');
+      
+      $('.new_message')[0].reset();
       $('.send').val('Send').attr('disabled', false);
       $('.main_middle').animate({scrollTop: $('.chat_lists')[0].scrollHeight})
     })
