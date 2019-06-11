@@ -25,7 +25,7 @@
   &_middle {
     @include padding();
     height: calc(100% - 120px);
-    // height: 100%;
+    overflow: scroll;
     .group_list {
       margin-bottom: 40px;
       .grpup__name {

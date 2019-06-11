@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+  before_action :set_group, only: [:edit, :update]
+
   def index
     
   end
@@ -7,6 +9,7 @@ class GroupsController < ApplicationController
     @group.users << current_user
   end
   def create
+    
     @group = Group.new(group_params)
     @save = @group.save
     if @save
@@ -18,10 +21,10 @@ class GroupsController < ApplicationController
     end
   end
   def edit
-    @group = Group.find(params[:id])
+    
   end
   def update
-    if Group.update(group_params)
+    if @group.update(group_params)
       flash[:success] = "編集が完了しました"
       redirect_to root_path
       else
@@ -32,6 +35,9 @@ class GroupsController < ApplicationController
   private
   def group_params
     params.require(:group).permit(:name, {user_ids: []})
+  end
+  def set_group
+    @group = Group.find(params[:id])
   end
   
 end

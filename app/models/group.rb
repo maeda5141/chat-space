@@ -3,8 +3,7 @@ class Group < ApplicationRecord
   has_many :group_users
   has_many :messages
 
-  validates :name, presence: true, uniqueness: true 
-  # validates :user_ids, presence: true
+  validates :name, presence: true
 
   def show_last_message(group)
     if group.messages != []

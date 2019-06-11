@@ -6,7 +6,9 @@
   %p.group_name
    = @group.name
   %p.member_name
-   Member: test-name
+   Member:
+   - @group.users.each do |user|
+    = user.name
   .edit
    =link_to edit_group_path(@group)  do
     Edit
