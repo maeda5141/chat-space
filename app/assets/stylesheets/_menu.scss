@@ -25,7 +25,8 @@
   &_middle {
     @include padding();
     height: calc(100% - 120px);
-    // height: 100%;
+    .group_lists {
+      overflow: scroll;
     .group_list {
       margin-bottom: 40px;
       .grpup__name {
@@ -36,5 +37,6 @@
         font-size: 11px;
       }
     }
+  }
   }
 }

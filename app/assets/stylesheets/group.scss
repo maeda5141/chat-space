@@ -46,7 +46,8 @@
       content: "";
       clear: both;
       display: block;
-    }
+    
+  }
 
     .chat-group-form__field--left {
       float: left;
@@ -54,11 +55,52 @@
       padding-right: 20px;
       padding-left: 20px;
       box-sizing: border-box;
+
     }
 
     .chat-group-form__field--right {
       float: right;
       width: 70%;
+      .user {
+        border-bottom: 1px solid #ddd;
+        padding: 20px;
+   
+        &__remove {
+          width: 80px;
+          height: 40px;
+          line-height: 40px;
+          color: red;
+          float: right;
+          cursor: pointer;
+        }
+      }
+      #user-search-result {
+        margin-top: 55px;
+        width: 100%;
+        .user {
+          border-bottom: 1px solid #ddd;
+          padding: 20px;
+          &__append {
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            color: #38aef0;
+            float: right;
+            cursor: pointer;
+          }
+          &__remove {
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            color: red;
+            float: right;
+            cursor: pointer;
+          }
+        }
+        .no_users {
+          padding: 20px;
+        }
+      }
     }
 
     .chat-group-form__label {
