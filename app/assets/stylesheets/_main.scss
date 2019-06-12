@@ -43,10 +43,10 @@ $mainWidth: calc(100vw - 300px);
    padding: 46px 40px 0px;
    background: #fafafa;
    overflow: scroll;
-   ul {
+   .message_lists {
      margin-bottom: 100px;
    
-   li {
+   .message {
         margin-bottom: 40px;
    p:first-child {
      font-size: 16px;

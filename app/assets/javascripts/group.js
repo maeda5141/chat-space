@@ -1,3 +1,5 @@
+
+$(document).on('turbolinks:load', function() { 
 $(function () {
   var resultArea = '#user-search-result';
   var formFieldRight = ".chat-group-form__field--right:eq(2)";
@@ -51,4 +53,6 @@ $(function () {
     $(resultArea).append(`<div class="user" id="${userId}">${userName}<div class="user__append">追加</div></div>`);
 
   });
+});
+
 });
