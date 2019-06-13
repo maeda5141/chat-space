@@ -60,23 +60,21 @@ return html;
     var imageHtml = message.image.url ? `<p><img src=${message.image.url} class="lower-message__image"></p>` : '';
     var html = 
     `<div class="message" data-id=${message.id}>
-    <div class="upper-message">
-      <p class="upper-message__user-name">
-        ${message.user_name}
-      <span class="upper-message__date">
-        ${message.created_at.replace('T', ' ').replace('.000+09:00', '')}
-      </span>
-      </p>
-    </div>
-    <div class="lower-message">
-    ${bodyHtml}
-    ${imageHtml}
-    </div>
-    </div>
-    `;
+        <div class="upper-message">
+          <p class="upper-message__user-name">
+            ${message.user_name}
+          <span class="upper-message__date">
+            ${message.created_at.replace('T', ' ').replace('.000+09:00', '')}
+          </span>
+          </p>
+        </div>
+        <div class="lower-message">
+          ${bodyHtml}
+          ${imageHtml}
+        </div>
+      </div>`;
     return html;
   }
-
   $(document).on('turbolinks:load', function() {
     
     var pathName = $(location).attr('pathname'); 
@@ -105,7 +103,7 @@ return html;
       }
     })
     .fail(function() {
-    //  alert('エラーが発生しました。');
+     alert('エラーが発生しました。');
     });
   }
   
