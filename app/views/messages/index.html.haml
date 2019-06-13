@@ -15,7 +15,7 @@
  .main_middle
   .message_lists
    - @messages.each do |message|
-    .message{data: {id: "#{message.id}"}}
+    .message{data: {id: "#{@group.id}"}}
      %p.upper-message__user-name
       = message.user.name
       %span 

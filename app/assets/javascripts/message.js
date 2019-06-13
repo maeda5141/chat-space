@@ -60,70 +60,45 @@ return html;
 
   var buildMessageHTML = function(message) {
 
-
-    var messageTemplate = 
+    var bodyHtml = message.body ? `<p class="lower-message__content">${message.body}</p>` : '';
+    var imageHtml = message.image.url ? `<p><img src=${message.image.url} class="lower-message__image"></p>` : '';
+    var html = 
     `<div class="message" data-id=${message.id}>
     <div class="upper-message">
       <p class="upper-message__user-name">
         ${message.user_name}
-      
       <span class="upper-message__date">
         ${message.created_at.replace('T', ' ').replace('.000+09:00', '')}
       </span>
       </p>
     </div>
-    <div class="lower-message">`;
+    <div class="lower-message">
+    ${bodyHtml}
+    ${imageHtml}
+    </div>
+    </div>
+    `;
 
-    if (message.body && message.image.url) {
-      var html = 
-     
-      `${messageTemplate}
-          <p class="lower-message__content">
-            ${message.body}
-          </p>
-          <p>
-          <img src=${message.image.url} class="lower-message__image">
-          </p>
-          </div>
-      </div>`;
-    } else if (message.body) {
-      var html = 
-
-      `${messageTemplate}
-          <p class="lower-message__content">
-            ${message.body}
-          </p>
-        </div>
-      </div>`;
-    } else if (message.image.url) {
-      var html = 
-     
-      `${messageTemplate}
-        <p>
-          <img src=${message.image.url} class="lower-message__image">
-          </p>
-          </div>
-      </div>`;
-    };
     return html;
-  };
+  }
 
   $(document).on('turbolinks:load', function() {
+    
     var pathName = $(location).attr('pathname'); 
-  var reloadMessages = function() {
+    console.log(pathName);
+    
+    console.log($('.group_name').data('id'));
+    var reloadMessages = function() {
    
     last_message_id = $('.message_lists > .message:last').data('id');
-    
+    var groupId = $('.group_name').data('id')
     $.ajax({
- 
       url: pathName.replace('/messages', '/api/messages'),
-
       type: 'get',
       dataType: 'json',
- 
       data: {
         id: last_message_id,
-        group_id: $('.group_name').data('id')
+        group_id: groupId
       }
     })
     .done(function(messages) {
@@ -134,16 +109,14 @@ return html;
       $('.message_lists').append(insertHTML);
       
       if (messages.length !== 0) {
-        console.log(messages);
         
         $('.main_middle').animate({scrollTop: $('.message_lists')[0].scrollHeight});
       } else {
-        console.log('ok');
-        
+        return;
       }
     })
     .fail(function() {
-      console.log('error');
+     alert('エラーが発生しました。');
     });
   }
   
