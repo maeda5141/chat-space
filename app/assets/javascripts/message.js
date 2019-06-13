@@ -25,8 +25,7 @@ $(function () {
   <p>
     ${imageTag(message)}
     </p>
-</div>
-`
+</div>`
 return html;
   }
   $('.new_message').on('submit', function (e) {
@@ -41,11 +40,9 @@ return html;
       processData: false,
       contentType: false
     })
-    .done(function (message) {
-      
+    .done(function (message) {     
       var html = buildhtml(message);
-      $('.message_lists').append(html);
-      
+      $('.message_lists').append(html);     
       $('.new_message')[0].reset();
       $('.send').val('Send').attr('disabled', false);
       $('.main_middle').animate({scrollTop: $('.message_lists')[0].scrollHeight});
@@ -53,8 +50,7 @@ return html;
     .fail(function () {
       alert('メッセージが入力されていません');
       $('.send').val('Send').attr('disabled', false);
-    })
-    
+    })   
   });
   
 
@@ -78,7 +74,6 @@ return html;
     </div>
     </div>
     `;
-
     return html;
   }
 
@@ -101,19 +96,16 @@ return html;
     .done(function(messages) {
       var insertHTML = '';
       messages.forEach(function (message) {
-        insertHTML = insertHTML + buildMessageHTML(message);
-      });
+        insertHTML = insertHTML + buildMessageHTML(message); });
       $('.message_lists').append(insertHTML);
-      
       if (messages.length !== 0) {
-        
         $('.main_middle').animate({scrollTop: $('.message_lists')[0].scrollHeight});
       } else {
         return;
       }
     })
     .fail(function() {
-     alert('エラーが発生しました。');
+    //  alert('エラーが発生しました。');
     });
   }
   
@@ -121,7 +113,6 @@ return html;
         setInterval(reloadMessages, 3000);
       } else {
         return;
-        
       }
 });
 });
