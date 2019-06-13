@@ -11,21 +11,17 @@ $(function () {
       }
     } 
     var sendTime = String(message.created_at);
-    var html = `
-    <div class="message" data-id=${message.id}>
-  <p class=upper-message__user-name>
-    ${message.name}
-    <span>
-      ${sendTime.replace("T", " ").replace(".000+09:00", "")}
-    </span>
-  </p>
-  <p>
-    ${message.body}
-  </p>
-  <p>
-    ${imageTag(message)}
-    </p>
-</div>`
+    var html = 
+    `<div class="message" data-id=${message.id}>
+      <p class=upper-message__user-name>
+        ${message.name}
+        <span>
+        ${sendTime.replace("T", " ").replace(".000+09:00", "")}
+        </span>
+      </p>
+      <p> ${message.body} </p>
+      <p>${imageTag(message)}</p>
+　   </div>`
 return html;
   }
   $('.new_message').on('submit', function (e) {
