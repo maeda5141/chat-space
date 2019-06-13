@@ -13,7 +13,7 @@ $(function () {
     var sendTime = String(message.created_at);
     var html = `
     <div class="message" data-id=${message.id}>
-  <p>
+  <p class=upper-message__user-name>
     ${message.name}
     <span>
       ${sendTime.replace("T", " ").replace(".000+09:00", "")}
@@ -61,41 +61,49 @@ return html;
   var buildMessageHTML = function(message) {
 
 
-    var messageTemplate = '<div class="message" data-id=' + message.id + '>' +
-    '<div class="upper-message">' +
-      '<p class="upper-message__user-name">' +
-        message.user_name +
+    var messageTemplate = 
+    `<div class="message" data-id=${message.id}>
+    <div class="upper-message">
+      <p class="upper-message__user-name">
+        ${message.user_name}
       
-      '<span class="upper-message__date">' +
-        message.created_at.replace('T', ' ').replace('.000+09:00', '') +
-      '</span>' +
-      '</p>'
-    '</div>' +
-    '<div class="lower-message">';
+      <span class="upper-message__date">
+        ${message.created_at.replace('T', ' ').replace('.000+09:00', '')}
+      </span>
+      </p>
+    </div>
+    <div class="lower-message">`;
+
     if (message.body && message.image.url) {
-      var html = messageTemplate +
-          '<p class="lower-message__content">' +
-            message.body +
-          '</p>' +
-          '<p>' +
-          '<img src="' + message.image.url + '" class="lower-message__image" >' +
-          '</p>' + 
-          '</div>' +
-      '</div>'
+      var html = 
+     
+      `${messageTemplate}
+          <p class="lower-message__content">
+            ${message.body}
+          </p>
+          <p>
+          <img src=${message.image.url} class="lower-message__image">
+          </p>
+          </div>
+      </div>`;
     } else if (message.body) {
-      var html = messageTemplate +
-          '<p class="lower-message__content">' +
-            message.body +
-          '</p>' +
-        '</div>' +
-      '</div>'
+      var html = 
+
+      `${messageTemplate}
+          <p class="lower-message__content">
+            ${message.body}
+          </p>
+        </div>
+      </div>`;
     } else if (message.image.url) {
-      var html = messageTemplate +
-        '<p>' +
-          '<img src="' + message.image.url + '" class="lower-message__image" >' +
-          '</p>'
-          '</div>' +
-      '</div>'
+      var html = 
+     
+      `${messageTemplate}
+        <p>
+          <img src=${message.image.url} class="lower-message__image">
+          </p>
+          </div>
+      </div>`;
     };
     return html;
   };
@@ -113,7 +121,10 @@ return html;
       type: 'get',
       dataType: 'json',
  
-      data: {id: last_message_id}
+      data: {
+        id: last_message_id,
+        group_id: $('.group_name').data('id')
+      }
     })
     .done(function(messages) {
       var insertHTML = '';
@@ -121,7 +132,15 @@ return html;
         insertHTML = insertHTML + buildMessageHTML(message);
       });
       $('.message_lists').append(insertHTML);
-      $('.main_middle').animate({scrollTop: $('.message_lists')[0].scrollHeight})
+      
+      if (messages.length !== 0) {
+        console.log(messages);
+        
+        $('.main_middle').animate({scrollTop: $('.message_lists')[0].scrollHeight});
+      } else {
+        console.log('ok');
+        
+      }
     })
     .fail(function() {
       console.log('error');

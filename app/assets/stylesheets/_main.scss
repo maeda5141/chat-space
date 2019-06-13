@@ -48,10 +48,11 @@ $mainWidth: calc(100vw - 300px);
    
    .message {
         margin-bottom: 40px;
-   p:first-child {
+   .upper-message__user-name {
      font-size: 16px;
      font-weight: bold;    
      color: #333;
+     
      span {
        font-weight: normal;
        font-size: 12px;
@@ -59,6 +60,9 @@ $mainWidth: calc(100vw - 300px);
        padding-left: 10px;
      }
    }
+   .lower-message__content {
+    font-weight: normal;
+  }
    p:last-child {
      margin-top: 10px;
    }
