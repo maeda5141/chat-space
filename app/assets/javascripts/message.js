@@ -85,9 +85,6 @@ return html;
   $(document).on('turbolinks:load', function() {
     
     var pathName = $(location).attr('pathname'); 
-    console.log(pathName);
-    
-    console.log($('.group_name').data('id'));
     var reloadMessages = function() {
    
     last_message_id = $('.message_lists > .message:last').data('id');
