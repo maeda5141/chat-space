@@ -15,7 +15,7 @@ default: &default
   pool: 5
   username: root
   password:
-  socket: /var/lib/mysql/mysql.sock
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
@@ -51,5 +51,5 @@ production:
   <<: *default
   database: chat-space_production
   username: root
-  password: ENV['DATABASE_PASSWORD']
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
