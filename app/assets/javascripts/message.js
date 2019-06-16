@@ -26,7 +26,6 @@ return html;
   }
   $('.new_message').on('submit', function (e) {
     e.preventDefault();
-    
     formData = new FormData(this);
     $.ajax({
       type: 'POST',

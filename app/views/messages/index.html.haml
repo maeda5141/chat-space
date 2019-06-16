@@ -28,7 +28,7 @@
 .message_form
  = form_for [@group, @message] do |f|
   = f.text_field :body, placeholder: "type a message"
-  = f.submit value: "Send", class: "send"
+  = f.submit value: "Send", class: "send", data: {disable_with: "Send"}
   = f.label "upload-icon", class: "upload-label" do
    %i(class="fa fa-image")
    = f.file_field :image, id: "message_upload-icon"

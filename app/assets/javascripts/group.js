@@ -5,7 +5,11 @@ $(function () {
   var formFieldRight = ".chat-group-form__field--right:eq(2)";
 
   $('#user-search-field').on('keyup', function () {
-    var input = $('#user-search-field').val()
+    var input = $('#user-search-field').val();
+    if (input === '') {
+      input = input.replace('', ' ');
+    }
+    
     $.ajax({
       type: 'GET',
       url: '/users',
