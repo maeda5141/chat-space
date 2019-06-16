@@ -93,8 +93,6 @@ return html;
       if (messages.length > 0) {
         
       messages.forEach(function (message) {
-        console.log(message.id);
-        // console.log(messages.length);
         
         if (message.group_id === groupId) {
 
