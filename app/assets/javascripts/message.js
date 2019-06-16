@@ -21,7 +21,7 @@ $(function () {
       </p>
       <p> ${message.body} </p>
       <p>${imageTag(message)}</p>
-　   </div>`
+     </div>`
 return html;
   }
   $('.new_message').on('submit', function (e) {
@@ -75,9 +75,10 @@ return html;
     
     var pathName = $(location).attr('pathname'); 
     var reloadMessages = function() {
-   
-    last_message_id = $('.message_lists > .message:last').data('id');
-    var groupId = $('.group_name').data('id')
+      
+      var groupId = $('.group_name').data('id')
+      var last_message_id = $('.message_lists .message:last').data('id');
+    
     $.ajax({
       url: pathName.replace('/messages', '/api/messages'),
       type: 'get',
@@ -89,13 +90,25 @@ return html;
     })
     .done(function(messages) {
       var insertHTML = '';
+      if (messages.length > 0) {
+        
       messages.forEach(function (message) {
-        insertHTML = insertHTML + buildMessageHTML(message); });
-      $('.message_lists').append(insertHTML);
-      if (messages.length !== 0) {
-        $('.main_middle').animate({scrollTop: $('.message_lists')[0].scrollHeight});
+        console.log(message.id);
+        // console.log(messages.length);
+        
+        if (message.group_id === groupId) {
+
+         insertHTML = insertHTML + buildMessageHTML(message); 
+         $('.message_lists').append(insertHTML);
+         
+              $('.main_middle').animate({scrollTop: $('.message_lists')[0].scrollHeight});
+       } else {
+
+        return false;
+       } 
+      });
       } else {
-        return;
+        return false;
       }
     })
     .fail(function() {
